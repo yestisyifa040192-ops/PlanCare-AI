@@ -20,215 +20,255 @@ const $ = id => document.getElementById(id);
 // =========================================
 
 const plants = {
-  alpukat: {
-    name: "Alpukat",
-    image: "images/alpukat.jpeg",
-    spec: "Daun berbentuk lonjong hingga elips, dengan ujung meruncing dan tulang daun menyirip.",
-    symptomaticSpec: "Jika terlihat menguning atau berbintik, catat gejala tersebut; penyebabnya belum dapat dipastikan hanya dari foto.",
-    healthy: "Jaga kelembapan tanah, berikan sinar matahari cukup, dan pastikan drainase baik.",
-    symptomatic: "Periksa daun yang menguning atau berbintik. Amati kemungkinan hama, kelembapan tanah berlebih, dan gangguan nutrisi."
-  },
-
-  cabe: {
-    name: "Cabe",
-    image: "images/cabe.jpeg",
-    spec: "Daun berbentuk lonjong dengan ujung meruncing dan tulang daun menyirip.",
-    symptomaticSpec: "Jika terlihat menguning, berbintik, atau menggulung, periksa bagian bawah daun dan kondisi tanaman.",
-    healthy: "Siram secukupnya pada pangkal tanaman, berikan sinar matahari cukup, dan jaga kesuburan tanah.",
-    symptomatic: "Periksa daun yang menguning, berbintik, atau menggulung. Amati bagian bawah daun untuk mengetahui kemungkinan hama."
-  },
-
-  pepaya: {
-    name: "Pepaya",
-    image: "images/pepaya.JPG",
-    spec: "Daun berukuran besar, bertangkai panjang, dan memiliki lekukan menjari yang dalam.",
-    symptomaticSpec: "Jika terlihat menguning, bercak, atau menggulung, periksa drainase dan kemungkinan hama.",
-    healthy: "Pastikan tanaman mendapat sinar matahari cukup, penyiraman teratur, dan tanah tidak tergenang.",
-    symptomatic: "Periksa daun yang menguning, bercak, atau menggulung. Pastikan drainase baik dan amati kemungkinan serangan hama."
-  },
-
-  tomat: {
-    name: "Tomat",
-    image: "images/tomat.jpeg",
-    spec: "Daun majemuk dengan anak daun berlekuk, tepi tidak rata, dan permukaan agak berambut.",
-    symptomaticSpec: "Jika terlihat bercak atau mengering, periksa pola bercak dan kemungkinan hama sebelum menentukan penanganan.",
-    healthy: "Berikan sinar matahari cukup, siram pada pangkal tanaman, dan gunakan penyangga bila diperlukan.",
-    symptomatic: "Periksa bercak pada daun, perubahan warna, atau daun yang mengering. Hindari membasahi daun berlebihan dan periksa kemungkinan hama."
-  },
-
-  singkong: {
-    name: "Singkong",
-    image: "images/singkong.jpeg",
-    spec: "Daun menjari dengan beberapa lobus panjang yang terpisah dan tangkai daun cukup panjang.",
-    symptomaticSpec: "Jika terlihat menguning, berbintik, atau berubah bentuk, periksa kondisi air dan kemungkinan hama.",
-    healthy: "Pastikan tanaman mendapat sinar matahari cukup, tanah memiliki drainase baik, dan air tersedia saat diperlukan.",
-    symptomatic: "Periksa daun yang menguning, berbintik, atau berubah bentuk. Amati kemungkinan hama dan pastikan tanaman tidak kekurangan air."
-  },
-
-  pisang: {
-    name: "Pisang",
-    image: "images/pisang.jpeg",
-    spec: "Daun sangat lebar dan memanjang, dengan tulang daun utama besar di bagian tengah.",
-    symptomaticSpec: "Jika terlihat bercak cokelat atau mengering, periksa apakah kerusakan meluas pada daun lain.",
-    healthy: "Jaga kelembapan tanah, berikan bahan organik, dan pastikan tanaman mendapat air yang cukup.",
-    symptomatic: "Periksa bercak cokelat, bagian daun mengering, atau perubahan warna. Buang bagian yang benar-benar mati dengan alat bersih dan periksa kondisi tanaman."
-  },
-
-  mangga: {
-    name: "Mangga",
-    image: "images/mangga.JPG",
-    spec: "Daun berbentuk lonjong memanjang, berujung runcing, dengan tulang daun menyirip yang jelas.",
-    symptomaticSpec: "Jika terlihat bercak gelap, menguning, atau mengering, periksa kondisi kelembapan dan kemungkinan hama.",
-    healthy: "Berikan sinar matahari cukup, siram sesuai kebutuhan, dan hindari tanah yang terus-menerus tergenang.",
-    symptomatic: "Periksa bercak hitam, daun mengering, atau perubahan warna. Amati kemungkinan hama dan gangguan kelembapan."
-  },
-
-  jambu: {
-    name: "Jambu",
-    image: "images/jambu.jpeg",
-    spec: "Daun umumnya berbentuk elips, dengan tulang daun menyirip yang cukup jelas. Ciri dapat berbeda menurut jenis jambu.",
-    symptomaticSpec: "Jika terlihat bercak, menguning, atau tepi daun rusak, amati bagian bawah daun dan kondisi tanaman.",
-    healthy: "Siram sesuai kondisi tanah, berikan sinar matahari cukup, dan lakukan pemangkasan seperlunya.",
-    symptomatic: "Periksa bercak, daun menguning, atau kerusakan pada tepi daun. Amati kemungkinan hama dan jaga kebersihan area tanaman."
-  },
-
+  
   bayam: {
     name: "Bayam",
-    image: "images/bayam.jpeg",
-    spec: "Daun umumnya berbentuk oval hingga menyerupai belah ketupat, dengan tepi relatif rata.",
-    symptomaticSpec: "Jika terlihat berlubang, berbintik, atau menguning, periksa kemungkinan hama serta kecukupan air dan nutrisi.",
-    healthy: "Jaga tanah tetap lembap tetapi tidak tergenang, berikan sinar matahari cukup, dan pastikan nutrisi tanah memadai.",
-    symptomatic: "Periksa daun yang menguning, berlubang, atau berbintik. Amati kemungkinan hama dan periksa kondisi air serta nutrisi tanah."
+    image: "bayam.jpeg",
+    spec: "Daun sederhana, oval/lonjong, hijau; tepi umumnya rata.",
+    healthy: "Hijau segar, tidak layu, tidak banyak bercak/lubang.",
+    healthyCare: "Jaga penyiraman teratur, cukup cahaya, drainase baik, dan periksa daun secara berkala.",
+    symptomaticSpec: "Bercak, menguning, berlubang atau layu; gejala tidak otomatis menunjukkan satu penyakit tertentu.",
+    symptomaticCare: "Buang daun rusak berat, periksa hama, hindari daun terlalu lama basah dan genangan."
   },
 
   jeruk: {
     name: "Jeruk",
-    image: "images/jeruk.jpeg",
-    spec: "Daun umumnya berbentuk elips, berujung agak runcing, dan pada beberapa jenis memiliki tangkai bersayap.",
-    symptomaticSpec: "Jika terlihat bercak, menguning, atau menggulung, periksa bagian bawah daun dan kemungkinan hama.",
-    healthy: "Berikan sinar matahari cukup, siram sesuai kebutuhan, dan pastikan air tidak menggenang di sekitar akar.",
-    symptomatic: "Periksa daun yang menguning, memiliki bercak, atau menggulung. Amati bagian bawah daun dan kemungkinan serangan hama."
+    image: "jeruk.jpeg",
+    spec: "Daun oval/lonjong, hijau, bertulang daun jelas.",
+    healthy: "Warna hijau relatif merata, bentuk normal, tidak menggulung.",
+    healthyCare: "Siram sesuai kebutuhan, beri nutrisi seimbang, pangkas ranting mati, dan periksa tunas muda.",
+    symptomaticSpec: "Klorosis/menguning tidak merata, tulang daun tetap hijau, daun kecil atau berlorong.",
+    symptomaticCare: "Periksa hama dan akar; jangan memastikan CVPD hanya dari foto, pemeriksaan laboratorium dapat diperlukan."
   },
 
   nangka: {
     name: "Nangka",
-    image: "images/nangka.jpeg",
-    spec: "Daun umumnya berbentuk oval hingga elips, dengan ujung membulat atau sedikit meruncing dan tepi rata.",
-    symptomaticSpec: "Jika terlihat bercak cokelat, menguning, atau mengering, periksa kondisi kelembapan dan kemungkinan hama.",
-    healthy: "Pastikan tanaman mendapat sinar matahari cukup, penyiraman sesuai kebutuhan, dan drainase tanah yang baik.",
-    symptomatic: "Periksa bercak cokelat, daun menguning, atau bagian daun mengering. Amati kemungkinan hama dan kondisi kelembapan tanah."
+    image: "nangka.jpeg",
+    spec: "Daun oval hingga lonjong, hijau dan relatif licin.",
+    healthy: "Daun utuh, hijau, tidak banyak bercak.",
+    healthyCare: "Jaga drainase, bersihkan area pangkal, dan periksa daun serta ranting berkala.",
+    symptomaticSpec: "Bercak cokelat/kehitaman, menguning atau mengering.",
+    symptomaticCare: "Buang daun gugur/rusak, pangkas bagian mati dengan alat bersih, pantau penyebaran."
   },
 
   kelor: {
-    name: "Daun Kelor",
+    name: "Kelor",
     image: "kelor.JPG",
-    spec: "Daun majemuk berukuran kecil, berbentuk bulat telur, berwarna hijau, dan tersusun berpasangan pada tangkai daun.",
-    symptomatic: "Jika terlihat bercak cokelat, daun menguning, berlubang, atau layu, periksa kemungkinan gangguan hama, penyakit, atau kondisi lingkungan.",
-    healthy: "Pastikan tanaman mendapatkan sinar matahari cukup, penyiraman teratur, dan tanah dengan drainase yang baik.",
+    spec: "Daun majemuk dengan anak daun kecil berbentuk oval.",
+    healthy: "Anak daun hijau segar, tidak banyak berlubang.",
+    healthyCare: "Pastikan cahaya cukup, drainase baik, dan pemangkasan tidak berlebihan.",
+    symptomaticSpec: "Bercak, menguning, berlubang atau gugur lebih awal.",
+    symptomaticCare: "Periksa hama, buang bagian rusak berat, hindari tanah tergenang."
   },
 
   katup: {
-    name: "Daun Katup",
+    name: "Katup",
     image: "katup.JPG",
-    spec: "Daun tunggal berbentuk lonjong hingga oval, berwarna hijau, dengan ujung meruncing dan tersusun berselang-seling pada batang.",
-    symptomatic: "Jika daun menguning, memiliki bercak, berlubang, atau layu, periksa kondisi tanaman dan kemungkinan adanya hama.",
-    healthy: "Berikan sinar matahari yang cukup, jaga kelembapan tanah, lakukan penyiraman secukupnya, dan pangkas bagian tanaman yang rusak.",
-  },
-  
-  mengkudu: {
-    name: "Daun Mengkudu",
-    image: "mengkudu.JPG",
-    spec: "Daun berukuran relatif besar, berbentuk elips hingga lonjong, berwarna hijau, dengan permukaan mengilap dan tulang daun yang jelas.",
-    symptomatic: "Jika daun menunjukkan bercak cokelat, menguning, berlubang, atau layu, periksa kondisi daun dan lingkungan tumbuh tanaman.",
-    healthy: "Pastikan tanaman memperoleh sinar matahari cukup, penyiraman sesuai kebutuhan, serta tanah yang subur dan tidak tergenang air.",
+    spec: "Daun sederhana, kecil, oval/lonjong, hijau.",
+    healthy: "Hijau segar dengan bentuk normal.",
+    healthyCare: "Siram sesuai kondisi tanah, jaga drainase, pangkas seperlunya.",
+    symptomaticSpec: "Menguning, menggulung, berlubang atau bercak.",
+    symptomaticCare: "Periksa bagian bawah daun dan hama; buang daun rusak; sesuaikan air."
   },
 
-  belimbingWuluh: {
-  name: "Daun Belimbing Wuluh",
-  image: "belimbing wuluh.jpeg",
-  spec: "Daun majemuk menyirip dengan anak daun berbentuk lonjong, berwarna hijau, dan tersusun berpasangan pada tangkai daun.",
-  symptomatic: "Jika daun menguning, memiliki bercak cokelat, berlubang, atau menggulung, periksa kondisi daun dan lingkungan tumbuh tanaman.",
-  healthy: "Pastikan tanaman memperoleh sinar matahari cukup, penyiraman sesuai kebutuhan, serta tanah subur dengan drainase baik."
+  mengkudu: {
+    name: "Mengkudu",
+    image: "mengkudu.JPG",
+    spec: "Daun besar, oval/lonjong dengan tulang daun jelas.",
+    healthy: "Hijau, helaian utuh, tidak layu.",
+    healthyCare: "Jaga kelembapan stabil, drainase baik, dan kebersihan area tanam.",
+    symptomaticSpec: "Bercak cokelat, menguning atau tepi mengering.",
+    symptomaticCare: "Periksa hama dan akar; buang daun rusak berat; hindari penyiraman berlebih."
+  },
+
+  belimbing_wuluh: {
+    name: "Belimbing Wuluh",
+    image: "belimbing wuluh.jpeg",
+    spec: "Daun majemuk menyirip dengan anak daun kecil.",
+    healthy: "Anak daun hijau, tidak banyak bercak.",
+    healthyCare: "Jaga drainase, pangkas ranting mati, periksa daun secara rutin.",
+    symptomaticSpec: "Menguning, bercak atau tepi mengering; perlu pemeriksaan penyebab.",
+    symptomaticCare: "Bersihkan daun rusak/gugur, periksa hama, hindari genangan."
   },
 
   belimbing: {
-  name: "Daun Belimbing",
-  image: "Belimbing.jpeg",
-  spec: "Daun majemuk menyirip dengan anak daun berbentuk oval hingga lonjong, ujung meruncing, dan berwarna hijau.",
-  symptomatic: "Jika daun menunjukkan bercak gelap, menguning, berlubang, atau mengering, periksa kemungkinan hama dan kondisi lingkungan.",
-  healthy: "Berikan sinar matahari cukup, siram secara teratur sesuai kebutuhan, dan gunakan tanah yang subur serta tidak tergenang."
+    name: "Belimbing",
+    image: "Belimbing.jpeg",
+    spec: "Daun majemuk menyirip, anak daun oval.",
+    healthy: "Hijau segar, bentuk relatif normal.",
+    healthyCare: "Siram sesuai kebutuhan, jaga kebersihan dan sirkulasi udara.",
+    symptomaticSpec: "Bercak, perubahan warna atau bentuk daun.",
+    symptomaticCare: "Pisahkan/buang daun rusak berat dan amati penyebaran gejala."
   },
 
-  daunSup: {
-  name: "Daun Sup",
-  image: "daun sup .jpeg",
-  spec: "Daun memiliki beberapa bagian dengan bentuk menyerupai kipas dan tepi bergerigi.",
-  symptomatic: "Jika daun menguning, memiliki bercak cokelat, berlubang, atau layu, periksa kelembapan tanah dan kemungkinan gangguan hama.",
-  healthy: "Jaga kelembapan tanah, berikan cahaya matahari yang cukup, dan gunakan media tanam yang gembur."
+  daun_sup: {
+    name: "Daun Sup",
+    image: "daun sup .jpeg",
+    spec: "Daun majemuk berlekuk, hijau, bertangkai.",
+    healthy: "Hijau segar, tidak layu, tangkai kokoh.",
+    healthyCare: "Jaga media tetap lembap tetapi tidak tergenang; siram pada pangkal.",
+    symptomaticSpec: "Mosaik, vein clearing, menguning atau bercak.",
+    symptomaticCare: "Buang daun bergejala, kendalikan serangga vektor sesuai panduan dan hindari memindahkan tanaman terinfeksi."
   },
 
-  jambuBiji: {
-  name: "Daun Jambu Biji",
-  image: "jambu biji.jpeg",
-  spec: "Daun berbentuk oval hingga lonjong, berwarna hijau, dengan tulang daun menyirip yang jelas dan permukaan agak bertekstur.",
-  symptomatic: "Jika daun menguning, memiliki bercak hitam atau cokelat, berlubang, atau mengering, periksa kondisi daun dan lingkungan tumbuh tanaman.",
-  healthy: "Pastikan tanaman mendapat sinar matahari cukup, penyiraman sesuai kebutuhan, dan pemupukan secara berkala."
+  jambu: {
+    name: "Jambu Monyet",
+    image: "jambu.jpeg",
+    spec: "Daun lebar, oval/lonjong, hijau.",
+    healthy: "Daun utuh, hijau, tidak banyak bercak.",
+    healthyCare: "Jaga drainase, periksa hama dan pangkas bagian mati.",
+    symptomaticSpec: "Bercak gelap, lubang atau tepi mengering.",
+    symptomaticCare: "Periksa hama dan perkembangan bercak; buang bagian mati; hindari kelembapan berlebih."
   },
 
-  kacangPanjang: {
-  name: "Daun Kacang Panjang",
-  image: "kacang panjang.jpeg",
-  spec: "Daun majemuk terdiri dari tiga anak daun berbentuk oval hingga meruncing, dengan warna hijau dan tulang daun yang jelas.",
-  symptomatic: "Jika daun menguning, berlubang, menggulung, atau memiliki bercak, periksa kemungkinan hama dan kondisi pertumbuhan tanaman.",
-  healthy: "Berikan sinar matahari cukup, jaga kelembapan tanah, dan pastikan tanah subur serta tidak tergenang air."
+  kacang_panjang: {
+    name: "Kacang Panjang",
+    image: "kacang panjang.jpeg",
+    spec: "Daun majemuk dengan tiga anak daun.",
+    healthy: "Hijau, bentuk normal, tidak banyak kerusakan.",
+    healthyCare: "Sediakan rambatan, air cukup, dan sirkulasi udara.",
+    symptomaticSpec: "Mosaik, menguning, keriting, bercak atau lubang.",
+    symptomaticCare: "Periksa kutu daun/serangga; tanaman dengan dugaan virus perlu dikonfirmasi dan dipisahkan."
   },
 
   kangkung: {
-  name: "Daun Kangkung",
-  image: "kangkung.jpeg",
-  spec: "Daun berbentuk memanjang hingga menyerupai mata tombak, berwarna hijau, dengan ujung meruncing dan tulang daun utama yang jelas.",
-  symptomatic: "Jika daun menguning, berlubang, memiliki bercak, atau layu, periksa kondisi air, tanah, dan kemungkinan hama.",
-  healthy: "Pastikan tanaman memperoleh cahaya matahari cukup, air sesuai kebutuhan, dan media tanam yang mendukung pertumbuhan."
+    name: "Kangkung",
+    image: "kangkung.jpeg",
+    spec: "Daun lonjong hingga menyerupai mata tombak.",
+    healthy: "Hijau segar, tidak layu.",
+    healthyCare: "Sesuaikan air dengan sistem budidaya; jaga kebersihan dan nutrisi.",
+    symptomaticSpec: "Bercak, lubang, menguning atau layu.",
+    symptomaticCare: "Periksa hama dan akar; atur air dan drainase sesuai media tanam."
   },
 
   lobak: {
-  name: "Daun Lobak",
-  image: "lobak.jpeg",
-  spec: "Daun relatif lebar dengan tulang daun utama yang jelas serta tepi yang dapat berlekuk atau bergerigi.",
-  symptomatic: "Jika daun berlubang, menguning, memiliki bercak gelap, atau mengering, periksa kemungkinan hama dan kondisi lingkungan.",
-  healthy: "Gunakan tanah yang gembur dan subur, jaga kelembapan tanah, serta berikan sinar matahari yang cukup."
+    name: "Lobak",
+    image: "lobak.jpeg",
+    spec: "Daun hijau, berlekuk atau menjari.",
+    healthy: "Hijau segar dan tidak banyak lubang.",
+    healthyCare: "Jaga kelembapan stabil, drainase baik, dan periksa hama.",
+    symptomaticSpec: "Lubang bekas gigitan, bercak atau menguning.",
+    symptomaticCare: "Periksa ulat/serangga, gunakan pelindung tanaman bila perlu, dan buang daun yang sangat rusak."
   },
 
   sawi: {
-  name: "Daun Sawi",
-  image: "sawi .jpeg",
-  spec: "Daun berwarna hijau, berbentuk lebar, dengan tulang daun utama yang menonjol dan urat daun yang terlihat jelas.",
-  symptomatic: "Jika daun menunjukkan bercak, lubang, perubahan warna menjadi kuning, atau layu, periksa kemungkinan hama dan kelembapan.",
-  healthy: "Jaga tanah tetap lembap tetapi tidak tergenang, berikan cahaya cukup, dan lakukan pemupukan sesuai kebutuhan."
+    name: "Sawi",
+    image: "sawi .jpeg",
+    spec: "Daun hijau, oval hingga memanjang, tulang daun jelas.",
+    healthy: "Hijau segar, helaian utuh.",
+    healthyCare: "Jaga jarak tanam, air cukup, dan bersihkan gulma/sisa tanaman.",
+    symptomaticSpec: "Bercak kecil gelap, menguning, berlubang atau lapisan putih.",
+    symptomaticCare: "Buang daun terinfeksi, periksa ulat, jaga sirkulasi udara dan hindari daun terlalu lama basah."
   },
 
   sirsak: {
-  name: "Daun Sirsak",
-  image: "sirsak.jpeg",
-  spec: "Daun berbentuk elips hingga lonjong, berwarna hijau, dengan permukaan relatif licin dan ujung meruncing.",
-  symptomatic: "Jika daun menguning, memiliki bercak cokelat atau hitam, atau mengering, periksa kondisi daun dan lingkungan tumbuh tanaman.",
-  healthy: "Berikan sinar matahari cukup, lakukan penyiraman sesuai kebutuhan, dan pastikan tanah tidak tergenang air."
+    name: "Sirsak",
+    image: "sirsak.jpeg",
+    spec: "Daun oval/lonjong, hijau, permukaan relatif halus.",
+    healthy: "Hijau, tidak banyak bercak dan tidak layu.",
+    healthyCare: "Jaga drainase, siram sesuai kebutuhan, dan periksa daun berkala.",
+    symptomaticSpec: "Bercak kecil hitam/cokelat yang dapat membesar.",
+    symptomaticCare: "Buang daun rusak berat, pangkas bagian mati, dan pantau gejala pada daun lain."
   },
 
   terong: {
-  name: "Daun Terong",
-  image: "terong.jpeg",
-  spec: "Daun berbentuk oval hingga lonjong, dengan tulang daun menyirip yang jelas dan permukaan yang dapat memiliki rambut halus.",
-  symptomatic: "Jika daun menguning, memiliki bercak, berlubang, menggulung, atau mengering, periksa kemungkinan hama dan kondisi pertumbuhan tanaman.",
-  healthy: "Pastikan tanaman memperoleh sinar matahari cukup, tanah subur, penyiraman teratur, dan drainase yang baik."
+    name: "Terong",
+    image: "terong.jpeg",
+    spec: "Daun lebar, oval/berlekuk, kadang berbulu halus.",
+    healthy: "Hijau segar, tidak layu atau bercak berat.",
+    healthyCare: "Siram pangkal tanaman, jaga drainase dan periksa bawah daun.",
+    symptomaticSpec: "Bercak dengan pusat cokelat, menguning, berlubang atau keriting.",
+    symptomaticCare: "Buang daun rusak berat, periksa hama, dan cek akar/batang bila layu berlanjut."
   },
 
   timun: {
-  name: "Daun Timun",
-  image: "timun.jpeg",
-  spec: "Daun berbentuk lebar menyerupai hati, dengan tulang daun menjari, permukaan agak kasar, dan tepi bergerigi.",
-  symptomatic: "Jika daun memiliki bercak kuning atau cokelat, berlubang, menggulung, atau menunjukkan lapisan putih, periksa kondisi daun dan kemungkinan hama.",
-  healthy: "Berikan sinar matahari cukup, jaga kelembapan tanah, gunakan media tanam subur, dan sediakan penyangga bagi batang yang merambat."
+    name: "Timun",
+    image: "timun.jpeg",
+    spec: "Daun lebar, berlekuk/menjari.",
+    healthy: "Hijau segar, bentuk relatif normal.",
+    healthyCare: "Siram pangkal, sediakan rambatan bila perlu, dan jaga sirkulasi udara.",
+    symptomaticSpec: "Daun menguning/keriting, mosaik atau bercak.",
+    symptomaticCare: "Buang daun rusak berat, periksa hama, dan jangan menetapkan virus hanya dari foto."
+  },
+
+  alpukat: {
+    name: "Alpukat",
+    image: "alpukat.jpeg",
+    spec: "Daun oval/lonjong, hijau dengan tulang daun jelas.",
+    healthy: "Hijau, utuh, tidak layu atau bercak berat.",
+    healthyCare: "Jaga drainase, siram sesuai kebutuhan, dan periksa tunas baru.",
+    symptomaticSpec: "Bercak cokelat/kehitaman, tepi mengering atau hawar.",
+    symptomaticCare: "Buang daun terinfeksi, hindari pembasahan berlebihan, dan pantau apakah bercak meluas."
+  },
+
+  cabai: {
+    name: "Cabai",
+    image: "cabe.jpeg",
+    spec: "Daun oval/lanset, hijau, ujung meruncing.",
+    healthy: "Hijau, tidak keriting dan tidak banyak bercak.",
+    healthyCare: "Siram pangkal, jaga nutrisi seimbang, periksa hama secara rutin.",
+    symptomaticSpec: "Bercak, menguning, keriting atau berlubang.",
+    symptomaticCare: "Periksa kutu daun/trips, buang bagian rusak dan konfirmasi penyebab sebelum pengendalian."
+  },
+
+  pepaya: {
+    name: "Pepaya",
+    image: "pepaya.JPG",
+    spec: "Daun besar menjari dengan tangkai panjang.",
+    healthy: "Hijau dan membuka normal.",
+    healthyCare: "Jaga drainase, hindari luka pada batang, periksa hama.",
+    symptomaticSpec: "Mosaik, keriting, klorosis atau bercak.",
+    symptomaticCare: "Periksa kemungkinan virus dan vektornya; gunakan bibit sehat; konfirmasi sebelum menyimpulkan penyebab."
+  },
+
+  pisang: {
+    name: "Pisang",
+    image: "pisang.jpeg",
+    spec: "Daun besar memanjang dengan tulang tengah menonjol.",
+    healthy: "Hijau luas, tidak ada bercak berat.",
+    healthyCare: "Jaga nutrisi dan drainase; bersihkan daun mati secara hati-hati.",
+    symptomaticSpec: "Bercak cokelat/kehitaman, garis atau area kering.",
+    symptomaticCare: "Pangkas bagian mati dengan alat bersih, bersihkan sisa tanaman dan pantau penyebaran."
+  },
+
+  singkong: {
+    name: "Singkong",
+    image: "singkong.jpeg",
+    spec: "Daun menjari dengan beberapa lobus.",
+    healthy: "Lobus hijau dan tidak banyak nekrosis.",
+    healthyCare: "Gunakan bahan tanam sehat, jaga air dan kebersihan kebun.",
+    symptomaticSpec: "Bercak, hawar, nekrosis atau tepi menguning.",
+    symptomaticCare: "Buang sisa tanaman sakit sesuai panduan setempat dan pantau penyebaran."
+  },
+
+  mangga: {
+    name: "Mangga",
+    image: "mangga.JPG",
+    spec: "Daun lonjong/lanset, hijau, tulang tengah jelas.",
+    healthy: "Hijau dan tidak banyak bercak.",
+    healthyCare: "Jaga drainase, pangkas bagian mati, hindari tajuk terlalu rapat.",
+    symptomaticSpec: "Bercak cokelat/kehitaman atau bagian daun mengering.",
+    symptomaticCare: "Pangkas daun/ranting rusak, jaga kebersihan kebun dan pantau gejala."
+  },
+
+  tomat: {
+    name: "Tomat",
+    image: "tomat.jpeg",
+    spec: "Daun majemuk, berlekuk, berwarna hijau.",
+    healthy: "Hijau, tidak layu dan pertumbuhan normal.",
+    healthyCare: "Siram pangkal, jaga jarak tanam, beri nutrisi sesuai kebutuhan.",
+    symptomaticSpec: "Bercak cokelat/kuning, menggulung atau layu.",
+    symptomaticCare: "Buang daun bergejala berat, periksa bagian bawah daun, dan identifikasi penyebab sebelum penanganan."
+  },
+
+  jambu_biji: {
+    name: "Jambu Biji",
+    image: "jambu biji.jpeg",
+    spec: "Daun oval, berhadapan, tulang daun jelas.",
+    healthy: "Hijau, utuh, tidak banyak bercak.",
+    healthyCare: "Jaga drainase, periksa hama, bersihkan daun gugur.",
+    symptomaticSpec: "Bercak cokelat/kehitaman, menguning atau berlubang.",
+    symptomaticCare: "Periksa hama dan perluasan bercak; buang daun rusak berat dan pangkas bagian mati."
   }
 };
 
@@ -469,9 +509,6 @@ if ($("capturePhoto")) {
   });
 }
 
-// =========================================
-// 6. MENAMPILKAN HASIL IDENTIFIKASI
-// =========================================
 
 function showResult(image, label, probability) {
   const parsed = parseLabel(label);
@@ -517,13 +554,20 @@ function showResult(image, label, probability) {
   $("careAdvice").textContent = data
     ? (
         parsed.symptomatic
-          ? data.symptomatic
-          : data.healthy
+          ? (
+              data.symptomaticCare ||
+              "Saran perawatan untuk daun bergejala belum tersedia."
+            )
+          : (
+              data.healthyCare ||
+              "Saran perawatan untuk daun sehat belum tersedia."
+            )
       )
     : "Tambahkan spesifikasi dan saran perawatan untuk tanaman ini pada data plants.";
 
   return parsed;
 }
+
 
 // =========================================
 // 7. MEMPERKECIL FOTO RIWAYAT
